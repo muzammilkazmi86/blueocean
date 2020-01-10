@@ -2,8 +2,19 @@ pipeline {
   agent any
   stages {
     stage('helloworld') {
-      steps {
-        echo 'Hello World'
+      parallel {
+        stage('helloworld') {
+          steps {
+            echo 'Hello World'
+          }
+        }
+
+        stage('') {
+          steps {
+            echo 'Multiline shell steps works too'
+          }
+        }
+
       }
     }
 
