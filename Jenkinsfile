@@ -17,7 +17,10 @@ pipeline {
 
     stage('Upload to AWS') {
       steps {
-        withAWS(region: 'us-east-2', credentials: 'jenkinsyed')
+        withAWS(region: 'us-east-2', credentials: 'jenkinsyed') {
+          s3Upload(bucket: 'syedtest007', pathStyleAccessEnabled: true, payloadSigningEnabled: true, file: 'index.html')
+        }
+
       }
     }
 
