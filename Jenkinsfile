@@ -17,7 +17,7 @@ pipeline {
 
     stage('Upload to AWS') {
       steps {
-        sh 'withAWS(region:\'us-east-2\',credentials:\'aws-static\')'
+        withAWS(region: 'us-east-2', credentials: 'jenkinsyed')
       }
     }
 
